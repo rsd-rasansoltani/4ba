@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>4ba.ir</title>
+<style>
+  body {
+    margin: 0;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Vazir', sans-serif;
+  }
+  .titraj {
+    color: #ff00d4;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="titraj" id="titraj"></div>
+
+  <script>
+    const text = "4 b a . i r";
+    const container = document.getElementById('titraj');
+    let index = 0;
+
+    function typeLetter() {
+      if (index < text.length) {
+        container.textContent += text[index];
+        index++;
+        setTimeout(typeLetter, 300);  // سرعت تایپ هر حرف (300 میلی‌ثانیه)
+      } else {
+        // وقتی تموم شد، 3 ثانیه صبر کن بعد برو صفحه جدید
+        setTimeout(() => {
+          window.location.href = "index2.html";
+        }, 3000);
+      }
+    }
+
+    typeLetter();
+  </script>
+</body>
+</html>
