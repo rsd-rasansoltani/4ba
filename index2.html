@@ -1,212 +1,190 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>4ba.ir - زیرمجموعه پروژه 1</title>
-  
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
-  
-  <style>
-    * {
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-    body {
-      font-family: "Vazir", Tahoma, sans-serif;
-      background: linear-gradient(135deg, #e2e8f0, #f9faff);
-      margin: 0;
-      padding: 30px 15px;
-      color: #2c3e50;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header {
-      background: #1e40af;
-      color: #f9fafb;
-      padding: 25px 20px;
-      width: 100%;
-      max-width: 1000px;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 900;
-      box-shadow: 0 10px 20px rgb(30 64 175 / 0.3);
-      letter-spacing: 1.3px;
-      margin-bottom: 40px;
-      user-select: none;
-    }
-    main {
-      max-width: 1000px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 28px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 15px rgb(0 0 0 / 0.08);
-      padding: 20px 20px 30px;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 14px 40px rgba(0, 74, 173, 0.3);
-      z-index: 1;
-    }
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: contain;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      box-shadow: 0 6px 15px rgb(0 0 0 / 0.05);
-      background: #f0f4ff;
-      padding: 8px;
-    }
-    .card a {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #004aad;
-      text-decoration: none;
-      margin-bottom: 12px;
-      word-break: break-word;
-      border: 2px solid #004aad;
-      border-radius: 8px;
-      padding: 8px 14px;
-      text-align: center;
-      display: inline-block;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: text;
-    }
-    .card a:hover {
-      background-color: #004aad;
-      color: #fff;
-      border-color: #003a8c;
-      text-decoration: none;
-    }
-    .description {
-      color: #4b5563;
-      font-size: 1.05rem;
-      line-height: 1.5;
-      flex-grow: 1;
-      user-select: text;
-    }
-    @media (max-width: 480px) {
-      header {
-        font-size: 1.7rem;
-        padding: 18px 12px;
-      }
-      main {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .card img {
-        height: 120px;
-      }
-      .card a {
-        font-size: 1.1rem;
-        padding: 6px 10px;
-      }
-      .description {
-        font-size: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوگو AynaRSD</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 48, 0.6));
+        }
+        
+        .logo-base {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #000;
+            box-shadow: 0 0 0 5px #ff0030, 
+                        0 0 20px rgba(255, 0, 48, 0.7),
+                        0 0 40px rgba(255, 0, 48, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hexagon-container {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hexagon {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 48, 0.15);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotate 30s infinite linear;
+        }
+        
+        .hexagon-inner {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: rgba(0, 0, 0, 0.9);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 2px solid #ff0030;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ai-symbol {
+            color: #ff0030;
+            font-size: 42px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 10px #ff0030;
+            animation: pulse 3s infinite ease-in-out;
+        }
+        
+        .circuit-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #ff0030;
+            border-right-color: #ff0030;
+            animation: rotate 8s infinite linear;
+        }
+        
+        .circuit-line:nth-child(2) {
+            width: 85%;
+            height: 85%;
+            animation-direction: reverse;
+            animation-duration: 6s;
+        }
+        
+        .logo-text {
+            position: absolute;
+            bottom: -70px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ff0030;
+            letter-spacing: 2px;
+        }
+        
+        .logo-text span {
+            color: #ff0030;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        .particle {
+            position: absolute;
+            background: #ff0030;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
+    <div class="logo-container">
+        <div class="logo-base">
+            <div class="hexagon-container">
+                <div class="hexagon"></div>
+                <div class="hexagon-inner">
+                    <div class="ai-symbol">AI</div>
+                </div>
+            </div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+        <div class="logo-text">Ayna<span>RSD</span></div>
+    </div>
 
-<header>
-  زیرمجموعه‌های پروژه 1 - 4ba.ir
-</header>
-
-<main>
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="rasandesign.ir لوگو" />
-    <a href="https://rasandesign.ir" target="_blank" rel="noopener">rasandesign.ir</a>
-    <p class="description">وب‌سایت رسمی شرکت راسان دیزاین برای معرفی خدمات و پروژه‌ها.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="wwe.rasandesign.ir لوگو" />
-    <a href="https://wwe.rasandesign.ir" target="_blank" rel="noopener">wwe.rasandesign.ir</a>
-    <p class="description">بخش مسابقات کشتی کج زنده و انلاین.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="rsd456.rasandesign.ir لوگو" />
-    <a href="https://rsd456.rasandesign.ir" target="_blank" rel="noopener">rsd456.rasandesign.ir</a>
-    <p class="description">بخش موتور جستجو گر rsd456</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="rasandesign.ir/game لوگو" />
-    <a href="https://rasandesign.ir/game" target="_blank" rel="noopener">rasandesign.ir/game</a>
-    <p class="description">صفحه بازی‌ها و سرگرمی‌های توسعه داده شده توسط تیم راسان.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="screenloop.ir لوگو" />
-    <a href="https://screenloop.ir" target="_blank" rel="noopener">screenloop.ir</a>
-    <p class="description">وب‌سایت تخصصی نمایش فیلم و سریال‌های منتخب.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="arsamvision.ir لوگو" />
-    <a href="https://arsamvision.ir" target="_blank" rel="noopener">arsamvision.ir</a>
-    <p class="description">سایت خدمات تصویربرداری و تدوین ویدیویی تحت مدیریت راسان.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="zangigroup.ir لوگو" />
-    <a href="https://zangigroup.ir" target="_blank" rel="noopener">zangigroup.ir</a>
-    <p class="description">سایت گروه زنگی، فعال در حوزه فناوری و هوش مصنوعی.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="mkstudio16.ir لوگو" />
-    <a href="https://mkstudio16.ir" target="_blank" rel="noopener">mkstudio16.ir</a>
-    <p class="description">استودیو طراحی و تولید محتوا با تمرکز بر تبلیغات دیجیتال.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="rasandesign.ir/AI لوگو" />
-    <a href="https://rasandesign.ir/AI" target="_blank" rel="noopener">rasandesign.ir/AI</a>
-    <p class="description">بخش هوش مصنوعی شرکت برای پروژه‌ها و تحقیق‌های پیشرفته.</p>
-  </div>
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="fci1.4ba.ir لوگو" />
-    <a href="https://fci1.4ba.ir" target="_blank" rel="noopener">fci1.4ba.ir</a>
-    <p class="description">بخش dns های اشتراکی وایرگارد و ...</p>
-  </div>
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="rasandesign.ir لوگو" />
-    <a href="https://Dns.4ba.ir" target="_blank" rel="noopener">dns.4ba.ir</a>
-    <p class="description">بخش تولید DNS</p>
-  </div>
-  <div class="card">
-    <img src="https://zangigroup.ir/pics/logo2.png" alt="rasandesign.ir لوگو" />
-    <a href="https://Wireguard.4ba.ir" target="_blank" rel="noopener">Wireguard.4ba.ir</a>
-    <p class="description">بخش تولید DNS وایرگارد</p>
-  </div>
-</main>
-<footer style="text-align:center; padding:15px; font-size:14px; color:#666; font-family: 'Vazir', Tahoma, sans-serif;">
-    &copy; <span id="year"></span> تمام حقوق برای <strong>4ba.ir</strong> محفوظ است.
-  </footer>
-  
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  
-
+    <script>
+        // ایجاد ذرات پراکنده در پس‌زمینه لوگو
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // اندازه ذره
+            const size = Math.random() * 5 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // موقعیت تصادفی
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 130;
+            const x = 150 + Math.cos(angle) * distance;
+            const y = 150 + Math.sin(angle) * distance;
+            
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            
+            // انیمیشن ذره
+            const duration = Math.random() * 5 + 5;
+            particle.style.animation = `pulse ${duration}s infinite ease-in-out`;
+            
+            particlesContainer.appendChild(particle);
+        }
+    </script>
 </body>
 </html>
