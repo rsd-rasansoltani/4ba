@@ -1,190 +1,302 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوگو AynaRSD</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-        
-        .logo-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 48, 0.6));
-        }
-        
-        .logo-base {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #000;
-            box-shadow: 0 0 0 5px #ff0030, 
-                        0 0 20px rgba(255, 0, 48, 0.7),
-                        0 0 40px rgba(255, 0, 48, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .hexagon-container {
-            position: absolute;
-            width: 85%;
-            height: 85%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hexagon {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 0, 48, 0.15);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            animation: rotate 30s infinite linear;
-        }
-        
-        .hexagon-inner {
-            position: absolute;
-            width: 70%;
-            height: 70%;
-            background: rgba(0, 0, 0, 0.9);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            border: 2px solid #ff0030;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .ai-symbol {
-            color: #ff0030;
-            font-size: 42px;
-            font-weight: bold;
-            text-align: center;
-            text-shadow: 0 0 10px #ff0030;
-            animation: pulse 3s infinite ease-in-out;
-        }
-        
-        .circuit-line {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: #ff0030;
-            border-right-color: #ff0030;
-            animation: rotate 8s infinite linear;
-        }
-        
-        .circuit-line:nth-child(2) {
-            width: 85%;
-            height: 85%;
-            animation-direction: reverse;
-            animation-duration: 6s;
-        }
-        
-        .logo-text {
-            position: absolute;
-            bottom: -70px;
-            width: 100%;
-            text-align: center;
-            color: #fff;
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #ff0030;
-            letter-spacing: 2px;
-        }
-        
-        .logo-text span {
-            color: #ff0030;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
-        }
-        
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-        
-        .particle {
-            position: absolute;
-            background: #ff0030;
-            border-radius: 50%;
-            opacity: 0.6;
-        }
-    </style>
+    <title>4BA Holding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="templatemo-electric-xtra.css" rel="stylesheet">
+<!--
+
+TemplateMo 596 Electric Xtra
+
+https://templatemo.com/tm-596-electric-xtra
+
+-->
+<style>
+    .logo-img {
+    width: 70px;   /* یا هر اندازه‌ای که میخوای */
+    height: 70px;
+    object-fit: contain; /* حفظ تناسب تصویر */
+    display: block;      /* یا inline-block اگر کنار متن یا المان دیگه باشه */
+}
+
+</style>
+<link rel="shortcut icon" href="4BA-logo.png">
 </head>
 <body>
-    <div class="logo-container">
-        <div class="logo-base">
-            <div class="hexagon-container">
-                <div class="hexagon"></div>
-                <div class="hexagon-inner">
-                    <div class="ai-symbol">AI</div>
-                </div>
-            </div>
-            <div class="circuit-line"></div>
-            <div class="circuit-line"></div>
-            <div class="particles" id="particles"></div>
-        </div>
-        <div class="logo-text">Ayna<span>RSD</span></div>
+    <!-- Animated Grid Background -->
+    <div class="grid-bg"></div>
+    <div class="gradient-overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- Animated Shapes -->
+    <div class="shapes-container">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-square"></div>
     </div>
 
-    <script>
-        // ایجاد ذرات پراکنده در پس‌زمینه لوگو
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 30;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // اندازه ذره
-            const size = Math.random() * 5 + 2;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // موقعیت تصادفی
-            const angle = Math.random() * Math.PI * 2;
-            const distance = Math.random() * 130;
-            const x = 150 + Math.cos(angle) * distance;
-            const y = 150 + Math.sin(angle) * distance;
-            
-            particle.style.left = `${x}px`;
-            particle.style.top = `${y}px`;
-            
-            // انیمیشن ذره
-            const duration = Math.random() * 5 + 5;
-            particle.style.animation = `pulse ${duration}s infinite ease-in-out`;
-            
-            particlesContainer.appendChild(particle);
-        }
-    </script>
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-link">
+<!-- لوگوی 4BA به صورت تصویر PNG -->
+            <img src="4BA-logo2.png" alt="4BA Logo" class="logo-img" />
+                <span class="logo-text">4BA Holding</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="text-rotator">
+            <div class="text-set active">
+                <h1 class="glitch-text" data-text="INNOVATE 4BA">INNOVATE 4BA</h1>
+                <p class="subtitle">4BA HOLDING shapes tomorrow’s digital world with visionary and cutting-edge solutions</p>
+            </div>
+            <div class="text-set">
+                <h1 class="glitch-text" data-text="DRIVE 4BA">DRIVE 4BA</h1>
+                <p class="subtitle">Empowering businesses globally, 4BA HOLDING leads the way in technology innovation</p>
+            </div>
+            <div class="text-set">
+                <h1 class="glitch-text" data-text="TRANSFORM 4BA">TRANSFORM 4BA</h1>
+                <p class="subtitle">With 4BA HOLDING, creativity meets technology to create a future without limits</p>
+            </div>
+        </div>
+    </div>
+    <div class="cta-container">
+        <a href="#features" class="cta-button cta-primary">Explore 4BA Services</a>
+        <a href="#about" class="cta-button cta-secondary">About 4BA HOLDING</a>
+    </div>
+</section>
+
+
+
+    <!-- Features Section with Tabs -->
+<section class="features" id="features">
+    <h2 class="section-title">Core Features of 4BA HOLDING</h2>
+    <div class="features-container">
+        <div class="feature-tabs">
+            <div class="tab-item active" data-tab="performance">
+                <span class="tab-icon">⚡</span>
+                <span>Performance</span>
+            </div>
+            <div class="tab-item" data-tab="security">
+                <span class="tab-icon">🔒</span>
+                <span>Security</span>
+            </div>
+            <div class="tab-item" data-tab="network">
+                <span class="tab-icon">🌐</span>
+                <span>Network</span>
+            </div>
+            <div class="tab-item" data-tab="analytics">
+                <span class="tab-icon">📊</span>
+                <span>Analytics</span>
+            </div>
+            <div class="tab-item" data-tab="integration">
+                <span class="tab-icon">🔧</span>
+                <span>Integration</span>
+            </div>
+        </div>
+
+        <div class="feature-content">
+            <!-- Performance -->
+            <div class="content-panel active" id="performance">
+                <h3>Lightning Fast Performance by 4BA HOLDING</h3>
+                <p>4BA HOLDING delivers unmatched speed and efficiency across all its digital infrastructures, empowering businesses to operate at the speed of thought.</p>
+                <ul class="feature-list">
+                    <li>Sub-millisecond response times powered by 4BA HOLDING</li>
+                    <li>99.99% uptime guaranteed by 4BA HOLDING</li>
+                    <li>Automatic scaling driven by 4BA HOLDING systems</li>
+                    <li>Real-time data synchronization across 4BA HOLDING networks</li>
+                </ul>
+            </div>
+
+            <!-- Security -->
+            <div class="content-panel" id="security">
+                <h3>Military-Grade Security by 4BA HOLDING</h3>
+                <p>4BA HOLDING protects your data with advanced multi-layer encryption and security protocols, ensuring complete safety against cyber threats.</p>
+                <ul class="feature-list">
+                    <li>256-bit AES encryption implemented by 4BA HOLDING</li>
+                    <li>Biometric authentication enabled by 4BA HOLDING</li>
+                    <li>Zero-knowledge architecture designed by 4BA HOLDING</li>
+                    <li>Real-time threat detection across 4BA HOLDING systems</li>
+                    <li>Automated security updates powered by 4BA HOLDING</li>
+                </ul>
+            </div>
+
+            <!-- Network -->
+            <div class="content-panel" id="network">
+                <h3>Global Neural Network of 4BA HOLDING</h3>
+                <p>4BA HOLDING connects clients through a global network infrastructure, ensuring intelligent routing, cross-platform compatibility, and future-ready architecture.</p>
+                <ul class="feature-list">
+                    <li>200+ global data centers managed by 4BA HOLDING</li>
+                    <li>Intelligent routing algorithms developed by 4BA HOLDING</li>
+                    <li>Cross-platform compatibility guaranteed by 4BA HOLDING</li>
+                    <li>5G and satellite connectivity powered by 4BA HOLDING</li>
+                    <li>Decentralized architecture by 4BA HOLDING</li>
+                </ul>
+            </div>
+
+            <!-- Analytics -->
+            <div class="content-panel" id="analytics">
+                <h3>Advanced Analytics by 4BA HOLDING</h3>
+                <p>4BA HOLDING harnesses AI-driven insights to enable precise, data-informed decisions across all digital operations.</p>
+                <ul class="feature-list">
+                    <li>Machine learning algorithms developed by 4BA HOLDING</li>
+                    <li>Predictive analytics powered by 4BA HOLDING</li>
+                    <li>Custom dashboards created by 4BA HOLDING</li>
+                    <li>Real-time data visualization across 4BA HOLDING platforms</li>
+                    <li>Automated reporting solutions by 4BA HOLDING</li>
+                </ul>
+            </div>
+
+            <!-- Integration -->
+            <div class="content-panel" id="integration">
+                <h3>Seamless Integration with 4BA HOLDING</h3>
+                <p>4BA HOLDING enables effortless integration with thousands of apps and services, ensuring that all business workflows remain connected and efficient.</p>
+                <ul class="feature-list">
+                    <li>RESTful API architecture by 4BA HOLDING</li>
+                    <li>WebSocket support provided by 4BA HOLDING</li>
+                    <li>SDKs for major platforms from 4BA HOLDING</li>
+                    <li>One-click integrations powered by 4BA HOLDING</li>
+                    <li>Custom webhook support enabled by 4BA HOLDING</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+<section class="about" id="about">
+    <h2 class="section-title">About 4BA HOLDING</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Pioneering the Digital Frontier</h2>
+            <p>4BA HOLDING is a powerhouse of innovation, born from the alliance of leading companies: 
+                <a href="https://rasandesign.ir" target="_blank" style="color: azure;">Rasan Design</a>, 
+                <a href="https://arsamvision.ir" target="_blank" style="color: azure;">Arsam Vision</a>, 
+                <a href="https://zangigroup.ir" target="_blank" style="color: azure;">Zangi Group</a>, and 
+                <a href="https://mkstudio16.ir" target="_blank" style="color: azure;">MK Studio</a>.
+                Together, we create digital solutions that empower businesses, transform industries, and shape the future.
+            </p>
+            <p>Our mission is to bridge the gap between human potential and technology, delivering innovative solutions that are both revolutionary and reliable. 4BA HOLDING combines creativity, expertise, and cutting-edge research to redefine what's possible in the digital world.</p>
+            <p>Join us as we lead the way in the digital age. At 4BA HOLDING, the future isn’t just awaited – it’s actively created through collaboration and vision.</p>
+        </div>
+        <div class="about-visual">
+            <div class="about-graphic"></div>
+        </div>
+    </div>
+    
+    <!-- Second row with reversed layout -->
+    <div class="about-content" style="margin-top: 80px;">
+        <div class="about-visual">
+            <div class="about-graphic-alt">
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+            </div>
+        </div>
+        <div class="about-text">
+            <h2>Innovation at Every Level</h2>
+            <p>Driven by excellence, 4BA HOLDING pushes boundaries and challenges conventions. Our world-class engineers, designers, and visionaries craft solutions that meet today’s needs and anticipate tomorrow’s challenges.</p>
+            <p>From AI to blockchain, from neural networks to advanced digital infrastructure, 4BA HOLDING stays at the forefront of every technological revolution. Each innovation builds on the last, creating synergy that amplifies our impact across industries.</p>
+            <p>Experience true digital transformation with 4BA HOLDING. Our philosophy is clear: adopting technology is just the start – embracing continuous evolution and limitless possibilities is what sets us apart.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Connect With Us</h3>
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-details">
+                        <h4>Email</h4>
+                        <p>info@4ba.ir</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-details">
+                        <h4>Phone</h4>
+                        <p>+98 903 204 7444</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-details">
+                        <h4>Location</h4>
+                        <p>IRAN , Kurdstan , Saqqez </p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <p>Interactive Map</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Saqqez, Daneshjoo Boulevard, Second Alley, next to Hormos Tile Shop</p>
+                    </div>
+                    <div class="map-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#privacy">سیاست حفظ حریم خصوصی</a>
+            <a href="#terms">شرایط استفاده</a>
+            <a href="#careers">فرصت‌های شغلی</a>
+        </div>
+        <p class="copyright">
+            © 2025 4BA HOLDING. All rights reserved. Any unauthorized copying or reproduction is subject to legal action.
+        </p>
+    </div>
+</footer>
+
+<script src="templatemo-electric-scripts.js"></script>
 </body>
 </html>
